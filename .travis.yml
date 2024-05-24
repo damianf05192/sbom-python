@@ -25,4 +25,4 @@ jobs:
 after_success:
   - echo "Build successful! Checking SBOM..."
   - ls -al /sbom-output
-  - cat /sbom-output/*
+  - cat /sbom-output/sbom.txt
