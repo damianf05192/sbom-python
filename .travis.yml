@@ -1,14 +1,10 @@
-# .travis.yml
-
 language: python
 python:
-  - "3.8" # Specify the Python version
+  - "3.8"
 
-# Command to install dependencies
 install:
   - pip install -r requirements.txt
 
-# Command to run tests
 script:
   - python -m unittest discover
 
@@ -29,4 +25,4 @@ jobs:
 after_success:
   - echo "Build successful! Checking SBOM..."
   - ls -al /sbom-output
-  - cat /sbom-output/* # This will output the SBOM file contents to the log
+  - cat /sbom-output/*
