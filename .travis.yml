@@ -11,3 +11,20 @@ install:
 # Command to run tests
 script:
   - python -m unittest discover
+
+# SBOM configuration
+jobs:
+  include:
+    - os: linux
+      dist: focal
+      addons:
+        sbom:
+          on:
+            branch: "main" # Change to your target branch name
+          run_phase: "after_success"
+          output_format: "cyclonedx-json"
+          input_dir: "/"
+          output_dir: "/sbom-output"
+
+after_success:
+  - echo "Build successful! SBOM generation will run."
