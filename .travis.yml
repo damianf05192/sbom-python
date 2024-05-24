@@ -20,11 +20,13 @@ jobs:
       addons:
         sbom:
           on:
-            branch: "main" # Change to your target branch name
-          run_phase: "after_success"
-          output_format: "cyclonedx-json"
-          input_dir: "/"
-          output_dir: "/sbom-output"
+            branch: main
+          run_phase: after_success
+          output_format: cyclonedx-json
+          input_dir: /
+          output_dir: /sbom-output
 
 after_success:
   - echo "Build successful! SBOM generation will run."
+  - ls -al /sbom-output
+  - cat /sbom-output/* # This will output the SBOM file contents to the log
