@@ -16,7 +16,7 @@ jobs:
       addons:
         sbom:
           on:
-            branch: main
+            branch: sbom
           run_phase: after_success
           output_format: cyclonedx-json
           input_dir: /
