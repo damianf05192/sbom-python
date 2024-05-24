@@ -27,6 +27,6 @@ jobs:
           output_dir: /sbom-output
 
 after_success:
-  - echo "Build successful! SBOM generation will run."
+  - echo "Build successful! Checking SBOM..."
   - ls -al /sbom-output
   - cat /sbom-output/* # This will output the SBOM file contents to the log
